@@ -1,49 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>PulseSave Terms of Service</title>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseSave Terms of Service</title>
+  <style>
+    :root {
+      --bg: #071120;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.10);
+      --text: #f8fafc;
+      --muted: rgba(226,232,240,0.78);
+      --soft: rgba(226,232,240,0.58);
+      --blue: #3b82f6;
+      --green: #34d399;
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(52,211,153,0.14), transparent 28%),
+        linear-gradient(180deg, #0d1530 0%, #091224 45%, #050913 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      font-size: 20px;
+      box-shadow: 0 10px 24px rgba(59,130,246,0.28);
+    }
+
+    .brand-title {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-subtitle {
+      color: var(--soft);
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.22);
+      color: #bfdbfe;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(34px, 5vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .meta {
+      color: var(--soft);
+      font-size: 14px;
+      margin-top: 14px;
+    }
+
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px 22px;
+      box-shadow: var(--shadow);
+      margin-top: 16px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 12px 0 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      color: var(--soft);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 20px 14px 48px; }
+      .hero, .section { border-radius: 22px; }
+      .topbar { align-items: flex-start; }
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6;">
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">$</div>
+        <div>
+          <div class="brand-title">PulseSave</div>
+          <div class="brand-subtitle">Legal & Privacy</div>
+        </div>
+      </div>
 
-  <h1>Terms of Service</h1>
+      <div class="nav">
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms of Service</a>
+      </div>
+    </div>
 
-  <p><strong>Effective Date:</strong> March 2026</p>
+    <section class="hero">
+      <div class="eyebrow">Terms of Service</div>
+      <h1>Clear terms for using PulseSave.</h1>
+      <p class="lead">
+        These Terms of Service explain the rules, limitations, and subscription terms that apply when you use the PulseSave mobile application.
+      </p>
+      <div class="meta"><strong>Effective Date:</strong> March 2026</div>
+    </section>
 
-  <p>Welcome to PulseSave ("we", "our", or "us"). By accessing or using the PulseSave mobile application (the "App"), you agree to be bound by these Terms of Service.</p>
+    <section class="section">
+      <h2>1. Use of the App</h2>
+      <p>
+        PulseSave provides budgeting tools, financial tracking features, and informational insights intended for personal use. By accessing or using the app, you agree to use it in compliance with all applicable laws and regulations.
+      </p>
+    </section>
 
-  <h2>1. Use of the App</h2>
-  <p>PulseSave provides budgeting tools and financial insights intended for personal use only. You agree to use the App in compliance with all applicable laws and regulations.</p>
+    <section class="section">
+      <h2>2. No Financial Advice</h2>
+      <p>
+        PulseSave does not provide financial, investment, tax, or legal advice. Any information, recommendations, or AI-generated insights are provided for informational purposes only.
+      </p>
+    </section>
 
-  <h2>2. No Financial Advice</h2>
-  <p>All information and insights provided by PulseSave are for informational purposes only and do not constitute financial, investment, tax, or legal advice. You should consult a qualified professional before making financial decisions.</p>
+    <section class="section">
+      <h2>3. User Accounts</h2>
+      <p>
+        You are responsible for maintaining the confidentiality of your account credentials and for activities that occur under your account.
+      </p>
+    </section>
 
-  <h2>3. User Accounts</h2>
-  <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+    <section class="section">
+      <h2>4. Subscription & Billing</h2>
+      <p>
+        PulseSave may offer a 14-day free trial. After the trial period, a subscription fee of $2.99 per month may be charged through your Apple App Store account.
+      </p>
+      <ul>
+        <li>Payment may be charged to your Apple ID account at confirmation of purchase</li>
+        <li>Subscriptions may automatically renew unless canceled at least 24 hours before the end of the current billing period</li>
+        <li>You may manage or cancel your subscription through your Apple account settings</li>
+      </ul>
+    </section>
 
-  <h2>4. Subscription & Billing</h2>
-  <p>PulseSave offers a 14-day free trial. After the trial period, a subscription fee of $2.99 per month will be charged through your Apple App Store account.</p>
+    <section class="section">
+      <h2>5. Cancellation & Refunds</h2>
+      <p>
+        Billing and refund requests are handled by Apple under their policies and processes. PulseSave does not directly process refunds for App Store transactions.
+      </p>
+    </section>
 
-  <ul>
-    <li>Payment will be charged to your Apple ID account at confirmation of purchase</li>
-    <li>Subscriptions automatically renew unless canceled at least 24 hours before the end of the billing period</li>
-    <li>You can manage or cancel your subscription in your Apple account settings</li>
-  </ul>
+    <section class="section">
+      <h2>6. Privacy</h2>
+      <p>
+        Your use of PulseSave is also governed by the PulseSave Privacy Policy.
+      </p>
+    </section>
 
-  <h2>5. Cancellation & Refunds</h2>
-  <p>All billing and refunds are handled by Apple. We do not have access to your payment information and cannot issue refunds directly.</p>
+    <section class="section">
+      <h2>7. Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by law, PulseSave shall not be liable for indirect, incidental, special, consequential, or punitive damages arising from or related to your use of the app.
+      </p>
+    </section>
 
-  <h2>6. Data & Privacy</h2>
-  <p>Your use of the App is also governed by our Privacy Policy.</p>
+    <section class="section">
+      <h2>8. Changes to These Terms</h2>
+      <p>
+        We may update these Terms of Service from time to time. Continued use of PulseSave after changes become effective constitutes acceptance of the revised terms.
+      </p>
+    </section>
 
-  <h2>7. Limitation of Liability</h2>
-  <p>To the fullest extent permitted by law, PulseSave shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the App.</p>
+    <section class="section">
+      <h2>9. Contact</h2>
+      <p>Email: pulsesave@gmail.com</p>
+    </section>
 
-  <h2>8. Changes to Terms</h2>
-  <p>We may update these Terms from time to time. Continued use of the App after changes constitutes acceptance of the revised Terms.</p>
-
-  <h2>9. Contact</h2>
-  <p>Email: pulsesave@gmail.com</p>
-
+    <div class="footer">
+      © 2026 PulseSave. All rights reserved.
+    </div>
+  </div>
 </body>
 </html>
