@@ -3,213 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PulseSave — Support</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <title>PulseSave Support</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #0b0e1a;
-      --surface: #12172a;
-      --surface2: #1a2035;
-      --border: rgba(255,255,255,0.07);
-      --green: #3de87a;
-      --green-dim: rgba(61,232,122,0.12);
-      --text: #e8ecf4;
-      --muted: #7a849e;
-      --accent: #5b8aff;
+      --bg: #071120;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.10);
+      --text: #f8fafc;
+      --muted: rgba(226,232,240,0.78);
+      --soft: rgba(226,232,240,0.58);
+      --blue: #3b82f6;
+      --green: #34d399;
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
     }
 
-    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
+    html, body {
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(52,211,153,0.14), transparent 28%),
+        linear-gradient(180deg, #0d1530 0%, #091224 45%, #050913 100%);
       color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif;
+      line-height: 1.7;
     }
 
-    /* Background glow blobs */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -200px; left: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(61,232,122,0.07) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: -200px; right: -200px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(91,138,255,0.07) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+    a { color: #93c5fd; text-decoration: none; }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
     }
 
-    /* NAV */
-    nav {
-      position: sticky; top: 0;
-      z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 40px;
-      background: rgba(11,14,26,0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 12px;
-      text-decoration: none;
-    }
-    .nav-logo-icon {
-      width: 38px; height: 38px;
-      background: var(--green);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-    }
-    .nav-logo-text {
-      font-family: 'DM Serif Display', serif;
-      font-size: 20px;
-      color: var(--text);
-    }
-    .nav-logo-text span { color: var(--green); }
-    nav a.nav-link {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    nav a.nav-link:hover { color: var(--text); }
-
-    /* HERO */
-    .hero {
-      position: relative; z-index: 1;
-      text-align: center;
-      padding: 100px 24px 80px;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--green-dim);
-      border: 1px solid rgba(61,232,122,0.25);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 13px;
-      color: var(--green);
-      font-weight: 500;
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
       margin-bottom: 28px;
-      animation: fadeUp 0.6s ease both;
+      flex-wrap: wrap;
     }
-    .hero-badge::before {
-      content: '';
-      width: 7px; height: 7px;
-      background: var(--green);
-      border-radius: 50%;
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+
+    .logo {
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      display: grid; place-items: center;
+      color: white; font-weight: 900; font-size: 20px;
+      box-shadow: 0 10px 24px rgba(59,130,246,0.28);
     }
+
+    .brand-title { font-size: 22px; font-weight: 900; letter-spacing: 0.2px; }
+    .brand-subtitle { color: var(--soft); font-size: 13px; margin-top: 2px; }
+
+    .nav { display: flex; gap: 10px; flex-wrap: wrap; }
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .nav a:hover { background: rgba(255,255,255,0.10); }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(52,211,153,0.12);
+      border: 1px solid rgba(52,211,153,0.22);
+      color: #bbf7d0;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
     h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(42px, 7vw, 72px);
-      line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
-      animation: fadeUp 0.6s 0.1s ease both;
+      margin: 0 0 10px;
+      font-size: clamp(34px, 5vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
     }
-    h1 em {
-      font-style: italic;
-      color: var(--green);
-    }
-    .hero-sub {
+
+    .lead {
       color: var(--muted);
       font-size: 17px;
-      max-width: 480px;
-      margin: 0 auto 48px;
-      line-height: 1.6;
-      font-weight: 300;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-    .hero-cta {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--green);
-      color: #0b0e1a;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-    .hero-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(61,232,122,0.3);
+      max-width: 760px;
+      margin: 0;
     }
 
-    /* SECTIONS */
-    section {
-      position: relative; z-index: 1;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
+    .summary {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(59,130,246,0.10);
+      border: 1px solid rgba(59,130,246,0.18);
+      color: var(--muted);
     }
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(28px, 4vw, 38px);
-      margin-bottom: 40px;
-      line-height: 1.2;
-    }
+    .summary strong { color: var(--text); }
 
     /* FAQ */
-    .faq-list { display: flex; flex-direction: column; gap: 2px; }
-    .faq-item {
-      background: var(--surface);
+    .section {
+      background: var(--panel);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 24px;
+      padding: 24px 22px;
+      box-shadow: var(--shadow);
+      margin-top: 16px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .faq-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 16px;
       overflow: hidden;
       transition: border-color 0.2s;
     }
-    .faq-item:hover { border-color: rgba(255,255,255,0.14); }
+    .faq-item:hover { border-color: rgba(255,255,255,0.18); }
+
     .faq-q {
       width: 100%;
       background: none;
       border: none;
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      font-family: inherit;
       font-size: 15px;
-      font-weight: 500;
+      font-weight: 600;
       text-align: left;
-      padding: 20px 24px;
+      padding: 16px 20px;
       cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       gap: 16px;
     }
-    .faq-q .icon {
+
+    .faq-icon {
       flex-shrink: 0;
-      width: 24px; height: 24px;
-      background: var(--surface2);
+      width: 26px; height: 26px;
       border-radius: 50%;
+      background: rgba(52,211,153,0.12);
+      border: 1px solid rgba(52,211,153,0.22);
       display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-      transition: transform 0.3s, background 0.2s;
-      color: var(--muted);
-    }
-    .faq-item.open .faq-q .icon {
-      transform: rotate(45deg);
-      background: var(--green-dim);
       color: var(--green);
+      font-size: 16px;
+      transition: transform 0.3s;
     }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
     .faq-a {
       max-height: 0;
       overflow: hidden;
@@ -217,208 +188,239 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.7;
-      font-weight: 300;
-      padding: 0 24px;
+      padding: 0 20px;
     }
     .faq-item.open .faq-a {
       max-height: 200px;
-      padding: 0 24px 20px;
+      padding: 0 20px 16px;
     }
 
-    /* CONTACT */
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 4px;
+    }
+
     .contact-card {
-      background: var(--surface);
+      background: rgba(255,255,255,0.04);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px;
+      border-radius: 18px;
+      padding: 20px;
       display: flex;
-      gap: 32px;
+      gap: 14px;
       align-items: flex-start;
     }
+
     .contact-icon {
-      flex-shrink: 0;
-      width: 52px; height: 52px;
-      background: var(--green-dim);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
-    }
-    .contact-info h3 {
-      font-family: 'DM Serif Display', serif;
       font-size: 22px;
-      margin-bottom: 8px;
-    }
-    .contact-info p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      font-weight: 300;
-      margin-bottom: 20px;
-    }
-    .contact-email {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 10px 20px;
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .contact-email:hover {
-      border-color: var(--green);
-      background: var(--green-dim);
-      color: var(--green);
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: rgba(52,211,153,0.10);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
     }
 
-    /* PRIVACY */
+    .contact-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+
+    .contact-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .contact-card a {
+      color: #93c5fd;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Privacy pills */
     .privacy-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 32px;
+      gap: 10px;
+      margin-top: 4px;
     }
-    .privacy-card {
-      background: var(--surface);
+
+    .privacy-pill {
+      background: rgba(255,255,255,0.04);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 24px;
+      padding: 18px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
     }
-    .privacy-card .emoji { font-size: 28px; margin-bottom: 12px; }
-    .privacy-card h4 {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .privacy-card p {
+
+    .privacy-pill .emoji { font-size: 22px; flex-shrink: 0; }
+
+    .privacy-pill h4 {
       font-size: 13px;
-      color: var(--muted);
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+
+    .privacy-pill p {
+      font-size: 12px;
+      color: var(--soft);
+      margin: 0;
       line-height: 1.5;
-      font-weight: 300;
     }
+
     .privacy-note {
-      background: var(--green-dim);
-      border: 1px solid rgba(61,232,122,0.2);
-      border-radius: 12px;
-      padding: 16px 20px;
+      margin-top: 14px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: rgba(52,211,153,0.08);
+      border: 1px solid rgba(52,211,153,0.18);
+      color: var(--muted);
       font-size: 13px;
-      color: var(--green);
       line-height: 1.6;
     }
+    .privacy-note a { color: #bbf7d0; font-weight: 600; }
 
-    /* FOOTER */
-    footer {
-      position: relative; z-index: 1;
+    .footer {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      color: var(--soft);
+      font-size: 14px;
       text-align: center;
-      padding: 40px 24px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
-    }
-    footer span { color: var(--green); }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 600px) {
-      nav { padding: 16px 20px; }
-      .contact-card { flex-direction: column; gap: 20px; }
+    @media (max-width: 640px) {
+      .wrap { padding: 20px 14px 48px; }
+      .hero, .section { border-radius: 22px; }
+      .topbar { align-items: flex-start; }
     }
   </style>
 </head>
 <body>
+<div class="wrap">
 
-<nav>
-  <a class="nav-logo" href="#">
-    <div class="nav-logo-icon">💰</div>
-    <span class="nav-logo-text">Pulse<span>Save</span></span>
-  </a>
-  <a class="nav-link" href="mailto:pulsesavesupport@gmail.com">Contact</a>
-</nav>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">$</div>
+      <div>
+        <div class="brand-title">PulseSave</div>
+        <div class="brand-subtitle">Support Center</div>
+      </div>
+    </div>
+    <div class="nav">
+      <a href="./privacy.html">Privacy Policy</a>
+      <a href="./terms.html">Terms of Service</a>
+    </div>
+  </div>
 
-<div class="hero">
-  <div class="hero-badge">Support Center</div>
-  <h1>How can we <em>help</em> you?</h1>
-  <p class="hero-sub">Find answers to common questions or reach out directly — we'll get back to you within 1–2 business days.</p>
-  <a class="hero-cta" href="#contact">✉ Get in Touch</a>
+  <section class="hero">
+    <div class="eyebrow">Support Center</div>
+    <h1>How can we help?</h1>
+    <p class="lead">Find answers to common questions or reach out directly — we typically respond within 1–2 business days.</p>
+    <div class="summary">
+      <strong>Quick tip:</strong> Browse the FAQ below first — most questions are answered there. If you still need help, email us directly at <a href="mailto:pulsesavesupport@gmail.com">pulsesavesupport@gmail.com</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q">How do I add income or a bill? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Tap the Transactions tab, then tap "+ Add" next to Income or Bills to log a new entry.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How does PulseSave Coach work? <span class="faq-icon">+</span></button>
+        <div class="faq-a">PulseSave Coach reads your saved financial data first, then answers your questions based on your actual numbers. AI insights are informational only and not financial advice.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How many AI messages do I get? <span class="faq-icon">+</span></button>
+        <div class="faq-a">PulseSave is $2.99/month after a 14-day free trial, which includes full access to AI Coach messages.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How do I add a bill to the calendar? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Bills you add in the Transactions tab automatically appear on your Calendar based on their due date.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How do I delete a transaction? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Tap on any transaction to open it and select Delete, or swipe left on a transaction to quickly delete it.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Is my financial data shared with anyone? <span class="faq-icon">+</span></button>
+        <div class="faq-a">No. Your data is stored privately via Firebase and is never sold or shared with third parties. AI Coach messages are processed by OpenAI to generate responses only.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Contact Us</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <h4>Email Support</h4>
+          <p>We read every message and typically respond within 1–2 business days.</p>
+          <a href="mailto:pulsesavesupport@gmail.com">pulsesavesupport@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">⏱️</div>
+        <div>
+          <h4>Response Time</h4>
+          <p>Include your device model and iOS version for the fastest resolution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Your Privacy</h2>
+    <div class="privacy-grid">
+      <div class="privacy-pill">
+        <div class="emoji">🔒</div>
+        <div>
+          <h4>Never Sold</h4>
+          <p>Your financial data is never sold or shared with advertisers.</p>
+        </div>
+      </div>
+      <div class="privacy-pill">
+        <div class="emoji">☁️</div>
+        <div>
+          <h4>Secure Storage</h4>
+          <p>Data is stored securely via Firebase with industry-standard encryption.</p>
+        </div>
+      </div>
+      <div class="privacy-pill">
+        <div class="emoji">🤖</div>
+        <div>
+          <h4>AI Processing</h4>
+          <p>Coach messages are processed by OpenAI to generate responses only.</p>
+        </div>
+      </div>
+    </div>
+    <div class="privacy-note">
+      For full details, read our <a href="./privacy.html">Privacy Policy</a>. Questions? Email us at <a href="mailto:pulsesavesupport@gmail.com">pulsesavesupport@gmail.com</a>
+    </div>
+  </section>
+
+  <div class="footer">© 2026 PulseSave. All rights reserved.</div>
+
 </div>
-
-<section id="faq">
-  <div class="section-label">FAQ</div>
-  <h2 class="section-title">Frequently Asked Questions</h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-q">How do I add income or a bill? <span class="icon">+</span></button>
-      <div class="faq-a">Tap the Transactions tab, then tap "+ Add" next to Income or Bills to log a new entry.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">How does PulseSave Coach work? <span class="icon">+</span></button>
-      <div class="faq-a">PulseSave Coach reads your saved financial data first, then answers your questions based on your actual numbers. AI insights are informational only and not financial advice.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">How many AI messages do I get? <span class="icon">+</span></button>
-      <div class="faq-a">The free plan includes 20 AI Coach messages per month.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">How do I add a bill to the calendar? <span class="icon">+</span></button>
-      <div class="faq-a">Bills you add in the Transactions tab automatically appear on your Calendar based on their due date.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">How do I delete a transaction? <span class="icon">+</span></button>
-      <div class="faq-a">Tap on any transaction to open it and select Delete, or swipe left on a transaction to quickly delete it.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">Is my financial data shared with anyone? <span class="icon">+</span></button>
-      <div class="faq-a">No. Your data is stored privately via Firebase and is never sold or shared with third parties. AI Coach messages are processed by OpenAI to generate responses only.</div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="section-label">Contact</div>
-  <h2 class="section-title">Still need help?</h2>
-  <div class="contact-card">
-    <div class="contact-icon">✉️</div>
-    <div class="contact-info">
-      <h3>Send us an email</h3>
-      <p>We read every message and typically respond within 1–2 business days. Include your device model and iOS version for fastest support.</p>
-      <a class="contact-email" href="mailto:pulsesavesupport@gmail.com">pulsesavesupport@gmail.com</a>
-    </div>
-  </div>
-</section>
-
-<section id="privacy">
-  <div class="section-label">Privacy</div>
-  <h2 class="section-title">Your data, your control</h2>
-  <div class="privacy-grid">
-    <div class="privacy-card">
-      <div class="emoji">🔒</div>
-      <h4>Never Sold</h4>
-      <p>Your financial data is never sold or shared with advertisers or third parties.</p>
-    </div>
-    <div class="privacy-card">
-      <div class="emoji">☁️</div>
-      <h4>Secure Storage</h4>
-      <p>Data is stored securely via Firebase with industry-standard encryption.</p>
-    </div>
-    <div class="privacy-card">
-      <div class="emoji">🤖</div>
-      <h4>AI Processing</h4>
-      <p>Coach messages are processed by OpenAI to generate responses and are not stored for training.</p>
-    </div>
-  </div>
-  <div class="privacy-note">
-    For full details, read our <a href="https://pulsesaveapp.github.io/pulsesave-legal/privacy.html" style="color:inherit;font-weight:600;">Privacy Policy</a>. Questions? Email us at pulsesavesupport@gmail.com
-  </div>
-</section>
-
-<footer>
-  © 2026 <span>PulseSave</span> · Built with care in Sacramento, CA
-</footer>
 
 <script>
   document.querySelectorAll('.faq-q').forEach(btn => {
