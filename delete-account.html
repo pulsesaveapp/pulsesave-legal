@@ -1,62 +1,371 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Delete Your PulseSave Account</title>
+  <style>
+    :root {
+      --bg: #071120;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.10);
+      --text: #f8fafc;
+      --muted: rgba(226,232,240,0.78);
+      --soft: rgba(226,232,240,0.58);
+      --blue: #3b82f6;
+      --green: #34d399;
+      --red: #f87171;
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(52,211,153,0.14), transparent 28%),
+        linear-gradient(180deg, #0d1530 0%, #091224 45%, #050913 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: #93c5fd; text-decoration: none; }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      font-size: 20px;
+      box-shadow: 0 10px 24px rgba(59,130,246,0.28);
+    }
+
+    .brand-title { font-size: 22px; font-weight: 900; letter-spacing: 0.2px; }
+    .brand-subtitle { color: var(--soft); font-size: 13px; margin-top: 2px; }
+
+    .nav { display: flex; gap: 10px; flex-wrap: wrap; }
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(248,113,113,0.10), rgba(255,255,255,0.03));
+      border: 1px solid rgba(248,113,113,0.18);
+      border-radius: 28px;
+      padding: 30px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(248,113,113,0.12);
+      border: 1px solid rgba(248,113,113,0.25);
+      color: #fca5a5;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(34px, 5vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .meta { color: var(--soft); font-size: 14px; margin-top: 14px; }
+
+    .warning {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(248,113,113,0.10);
+      border: 1px solid rgba(248,113,113,0.22);
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .warning-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .warning strong { color: #fca5a5; }
+
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px 22px;
+      box-shadow: var(--shadow);
+      margin-top: 16px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 .icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .icon-blue { background: rgba(59,130,246,0.16); border: 1px solid rgba(59,130,246,0.25); }
+    .icon-green { background: rgba(52,211,153,0.14); border: 1px solid rgba(52,211,153,0.22); }
+    .icon-red { background: rgba(248,113,113,0.14); border: 1px solid rgba(248,113,113,0.22); }
+
+    p { margin: 10px 0 0; color: var(--muted); }
+
+    ol, ul {
+      margin: 14px 0 0 0;
+      padding-left: 0;
+      color: var(--muted);
+      list-style: none;
+    }
+
+    ol { counter-reset: steps; }
+
+    ol li {
+      counter-increment: steps;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 8px;
+    }
+
+    ol li::before {
+      content: counter(steps);
+      min-width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: white;
+      font-weight: 900;
+      font-size: 13px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    ul li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 6px;
+    }
+
+    ul li::before {
+      content: "🗑️";
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    strong { color: var(--text); font-weight: 800; }
+
+    .contact-card {
+      margin-top: 14px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(59,130,246,0.10);
+      border: 1px solid rgba(59,130,246,0.20);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-card .email-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(59,130,246,0.18);
+      border: 1px solid rgba(59,130,246,0.28);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-card a {
+      color: #93c5fd;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      color: var(--soft);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 20px 14px 48px; }
+      .hero, .section { border-radius: 22px; }
+      .topbar { align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
+  <div class="wrap">
 
-  <h1>Delete Your PulseSave Account</h1>
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">$</div>
+        <div>
+          <div class="brand-title">PulseSave</div>
+          <div class="brand-subtitle">Legal & Privacy</div>
+        </div>
+      </div>
+      <div class="nav">
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms of Service</a>
+      </div>
+    </div>
 
-  <p>
-    PulseSave allows users to permanently delete their account directly from the app.
-  </p>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="eyebrow">Account Deletion</div>
+      <h1>Delete your account.</h1>
+      <p class="lead">
+        You can permanently delete your PulseSave account and all associated data directly from the app at any time.
+      </p>
+      <div class="meta"><strong>Effective Date:</strong> March 2026</div>
 
-  <h2>How to Delete Your Account</h2>
+      <div class="warning">
+        <div class="warning-icon">⚠️</div>
+        <div>
+          <strong>This action is permanent and cannot be undone.</strong> Once your account is deleted, all your data is immediately and irreversibly removed from our systems.
+        </div>
+      </div>
+    </section>
 
-  <ol>
-    <li>Open PulseSave.</li>
-    <li>Go to <strong>Settings</strong>.</li>
-    <li>Tap <strong>Delete Account</strong>.</li>
-    <li>Confirm the deletion.</li>
-  </ol>
+    <!-- How to delete -->
+    <section class="section">
+      <h2>
+        <span class="icon icon-blue">📱</span>
+        How to Delete Your Account
+      </h2>
+      <ol>
+        <li>Open <strong>PulseSave</strong> on your device.</li>
+        <li>Tap the <strong>☰ menu</strong> icon in the top right corner of the Home screen.</li>
+        <li>Go to <strong>Settings</strong>.</li>
+        <li>Scroll down and tap <strong>Delete Account</strong>.</li>
+        <li>Confirm your identity and tap <strong>Delete</strong> to permanently remove your account.</li>
+      </ol>
+    </section>
 
-  <h2>What Happens When You Delete Your Account</h2>
+    <!-- What gets deleted -->
+    <section class="section">
+      <h2>
+        <span class="icon icon-red">🗑️</span>
+        What Gets Deleted
+      </h2>
+      <p>Once confirmed, the following data is permanently and immediately deleted:</p>
+      <ul>
+        <li>Account information and login credentials</li>
+        <li>Email address and profile information</li>
+        <li>Bills and recurring expenses</li>
+        <li>Income records</li>
+        <li>Expense and transaction history</li>
+        <li>Savings goals and debt plans</li>
+        <li>AI Coach chat history</li>
+        <li>Subscription-related app data</li>
+      </ul>
+      <p style="margin-top: 16px;">
+        After deletion, your data <strong>cannot be recovered</strong>. You will need to create a new account if you wish to use PulseSave again.
+      </p>
+    </section>
 
-  <p>
-    Once you confirm account deletion, PulseSave permanently removes your account
-    and all associated data from our database, including financial information,
-    AI Coach chat history, and subscription-related app data.
-    <strong>This action cannot be undone.</strong>
-  </p>
+    <!-- Need help -->
+    <section class="section">
+      <h2>
+        <span class="icon icon-green">💬</span>
+        Need Help?
+      </h2>
+      <p>If you have any questions or experience issues deleting your account, please reach out — we're happy to help.</p>
+      <div class="contact-card">
+        <div class="email-icon">✉️</div>
+        <div>
+          <div style="color: var(--soft); font-size: 13px; font-weight: 700; margin-bottom: 2px;">Support Email</div>
+          <a href="mailto:pulsesave401@gmail.com">pulsesave401@gmail.com</a>
+        </div>
+      </div>
+    </section>
 
-  <p>The following data is permanently deleted:</p>
+    <div class="footer">
+      © 2026 PulseSave. All rights reserved.
+    </div>
 
-  <ul>
-    <li>Account information</li>
-    <li>Email address and profile information</li>
-    <li>Bills and recurring expenses</li>
-    <li>Income records</li>
-    <li>Expense history</li>
-    <li>Savings goals</li>
-    <li>AI Coach chat history</li>
-    <li>Subscription-related app data</li>
-  </ul>
-
-  <p>
-    After deletion, your data cannot be recovered and you will need to create a new
-    account if you wish to use PulseSave again.
-  </p>
-
-  <h2>Need Help?</h2>
-
-  <p>
-    If you have any questions or experience issues deleting your account,
-    please contact us at:
-  </p>
-
-  <p>
-    <strong>pulsavesupport@gmail.com</strong>
-  </p>
-
+  </div>
 </body>
 </html>
